@@ -23,7 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-importer:
+  importer:
     runs-on: ubuntu-latest
 
     steps:
