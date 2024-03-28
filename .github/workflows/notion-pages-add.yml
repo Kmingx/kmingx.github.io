@@ -1,16 +1,8 @@
-name: "Build and Deploy"
+name: "Notion, Build and Deploy"
 on:
-  push:
-    branches:
-      - main
-      - master
-    paths-ignore:
-      - .gitignore
-      - README.md
-      - LICENSE
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    types: [RUN_WORKFLOW_DISPATCH]
 
 permissions:
   contents: write
@@ -25,7 +17,42 @@ concurrency:
 jobs:
   importer:
     runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
     
+      - name: Clean Directory
+        run: |
+          for file in assets/img/*
+          do
+              if [[ $file != "assets/img/favicons" ]]
+              then
+                  rm -rf "$file"
+              fi
+          done
+          rm -rf _posts/*
+      
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "17"
+
+      - run: npm install
+
+      - run: node _scripts/notion-import.js
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit_message: "[배포] Notion 변경 사항 저장"
+          branch: main
+          commit_user_name: importer-bot 🤖
+          commit_user_email: actions@github.com
+          commit_author: importer-bot 🤖 <actions@github.com>
+ 
   build:
     needs: importer
     runs-on: ubuntu-latest
