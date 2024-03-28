@@ -1,8 +1,17 @@
 name: "Build and Deploy"
 on:
-  repository_dispatch:
-    types: [RUN_WORKFLOW_DISPATCH]
-      
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - .gitignore
+      - README.md
+      - LICENSE
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 permissions:
   contents: write
   pages: write
@@ -14,7 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  importer:
+importer:
     runs-on: ubuntu-latest
 
     steps:
@@ -53,14 +62,12 @@ jobs:
           commit_author: importer-bot 🤖 <actions@github.com>
  
   build:
-    needs: importer
     runs-on: ubuntu-latest
 
-    steps:           
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 1
           # submodules: true
           # If using the 'assets' git submodule from Chirpy Starter, uncomment above
@@ -73,7 +80,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # reads from a '.ruby-version' or '.tools-version' file if 'ruby-version' is omitted
+          ruby-version: 3.2
           bundler-cache: true
 
       - name: Build site
