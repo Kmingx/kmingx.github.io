@@ -23,9 +23,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  importer:
-    runs-on: ubuntu-latest
-    
   build:
     needs: importer
     runs-on: ubuntu-latest
