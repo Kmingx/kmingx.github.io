@@ -62,6 +62,7 @@ importer:
           commit_author: importer-bot 🤖 <actions@github.com>
  
   build:
+    needs: importer
     runs-on: ubuntu-latest
 
     steps:
