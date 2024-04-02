@@ -64,6 +64,10 @@
           {%- capture url -%}
             javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
           {%- endcapture -%}
+        {% when 'notion' %}
+          {%- capture url -%}
+            https://ggom.notion.site/ecbe6db2a5bc43a89803a6a066abb70d?pvs=4
+          {%- endcapture -%}
         {% when 'rss' %}
           {% assign url = '/feed.xml' | relative_url %}
         {% else %}
@@ -89,8 +93,12 @@
             rel="{{ link_types }}"
           {% endunless %}
         >
+        {% if entry.img %}
+          <img src="{{ entry.img }}" alt="{{ entry.type }}" width="70%" height="auto">
+        {% else %}
           <i class="{{ entry.icon }}"></i>
-        </a>
+        {% endif %}
+      </a>
       {% endif %}
     {% endfor %}
   </div>
