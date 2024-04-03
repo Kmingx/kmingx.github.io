@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
       # Directory 삭제로직 불필요 append 변경
       # - name: Clean Directory
       #   run: |
