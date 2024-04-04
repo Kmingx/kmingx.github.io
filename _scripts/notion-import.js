@@ -131,9 +131,38 @@ title: "${title}"${fmtags}${fmcats}
         return `![${index++}](/${filename})${res}`;
       }
     );
+    let video_index = 0;
+    let video_edited_md = md.replace(
+      /\[image]\((.*?)\)/g,
+      function (match, p1) {
+        const dirname = path.join("assets/video", ftitle);
+        if (!fs.existsSync(dirname)) {
+          fs.mkdirSync(dirname, { recursive: true });
+        }
+        const filename = path.join(dirname, `${video_index}.mp4`);
+        axios({
+          method: "get",
+          url: p1,
+          responseType: "stream",
+        })
+          .then(function (response) {
+            let file = fs.createWriteStream(`${filename}`);
+            response.data.pipe(file);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+
+        return `<video width="100%" controls>
+        <source src="/${filename}" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+        </video>`;
+      }
+    );
 
     //writing to file
-    fs.writeFile(path.join(root, ftitle), fm + edited_md, (err) => {
+    fs.writeFile(path.join(root, ftitle), fm + video_edited_md, (err) => {
       if (err) {
         console.log(err);
       }
