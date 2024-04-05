@@ -131,6 +131,12 @@
       z-index: 1;
     }
   }
+  .summary {
+    margin-left: 7rem;
+    font-size: 0.9rem;
+    line-height: 1.3; /* 줄 간격을 1.5배로 설정 */
+}
+
 } /* #archives */
 
 @media all and (max-width: 576px) {
