@@ -132,7 +132,7 @@ title: "${title}"${fmtags}${fmcats}
       }
     );
     let video_index = 0;
-    let video_edited_md = md.replace(
+    let video_edited_md = edited_md.replace(
       /\[image]\((.*?)\)/g,
       function (match, p1) {
         const dirname = path.join("assets/video", ftitle);
