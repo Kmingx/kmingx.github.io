@@ -52,14 +52,6 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
     if (ptitle?.length > 0) {
       title = ptitle[0]?.["plain_text"];
     }
-    // subtitle
-    
-    // let subtitle = id;
-    // let ptsubtitleitle = r.properties?.["게시물"]?.["title"];
-    // if (ptitle?.length > 0) {
-    //   title = ptsubtitleitle[0]?.["plain_text"];
-    // }
-
     // tags
     let tags = [];
     let ptags = r.properties?.["태그"]?.["multi_select"];
@@ -105,19 +97,24 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
 // `;
     let fm;
   if (cats.length > 0 && cats[0] === "Project") {
-      fm = `---
-  layout: post
-  date: ${date}
-  title: "${title}"${fmtags}${fmcats}
-  subtitle: "${subtitle}"
-  skill : "${skill}"
-  ---`;
+    //subtitle
+    let subtitle = id;
+    let ptsubtitleitle = r.properties?.["서브타이틀"]?.["rich_text"];
+    if (ptsubtitleitle?.length > 0) {
+      ptsubtitleitle = ptsubtitleitle[0]?.["plain_text"];
+    }
+    fm = `---
+layout: post
+date: ${date}
+title: "${title}"${fmtags}${fmcats}
+subtitle: ${ptsubtitleitle}
+---`;
   } else {
       fm = `---
-  layout: post
-  date: ${date}
-  title: "${title}"${fmtags}${fmcats}
-  ---`;
+layout: post
+date: ${date}
+title: "${title}"${fmtags}${fmcats}
+---`;
   }
     const mdblocks = await n2m.pageToMarkdown(id);
     let md = n2m.toMarkdownString(mdblocks)["parent"];
