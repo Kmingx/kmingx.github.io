@@ -108,6 +108,7 @@ layout: post
 date: ${date}
 title: "${title}"${fmtags}${fmcats}
 subtitle: ${ptsubtitleitle}
+comments: false
 ---`;
   } else {
       fm = `---
