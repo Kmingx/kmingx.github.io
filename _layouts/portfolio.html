@@ -40,7 +40,7 @@ layout: page
           </span>
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a><br>
           <li>
-            <div class = "summary">주제 : {{ post.categories }}</div>
+            <div class = "summary">주제 : {{ post.subtitle }}</div>
             <div class = "summary">기술스텍 : 
               {% for tag in post.tags %}
                 {{ tag }}
