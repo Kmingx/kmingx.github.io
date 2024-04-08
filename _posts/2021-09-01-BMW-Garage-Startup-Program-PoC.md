@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-09-01
+date: 2021-09-03
 title: "BMW Garage Startup Program PoC"
 tags: [GitLab, AWS EC2, Vue, Python, AWS RDS, ]
 categories: [Project, ]
