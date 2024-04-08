@@ -180,11 +180,13 @@ title: "${title}"${fmtags}${fmcats}
           .catch(function (error) {
             console.log(error);
           });
+        video_index++
 
 
         return `<video width="100%" controls>
           <source src="/${filename}" type="video/mp4">
         </video>`;
+        
       }
     );
     //writing to file
