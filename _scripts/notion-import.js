@@ -103,11 +103,17 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
     if (ptsubtitleitle?.length > 0) {
       ptsubtitleitle = ptsubtitleitle[0]?.["plain_text"];
     }
+    //enddate
+    let enddate = r.properties?.["종료일"]?.["date"]?.["start"];
+    if (enddate) {
+      enddate = moment(enddate).format("YYYY-MM-DD");
+    }
     fm = `---
 layout: post
 date: ${date}
 title: "${title}"${fmtags}${fmcats}
 subtitle: ${ptsubtitleitle}
+enddate : ${enddate}
 comments: false
 ---`;
   } else {
