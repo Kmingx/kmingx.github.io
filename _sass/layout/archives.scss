@@ -142,11 +142,23 @@
 } /* #archives */
 .column-list {
 	display: flex;
-	justify-content: space-between;
-}
 
-.column {
-	padding: 0 0.5em;
+}
+.skillbox {
+	display: flex;
+
+}
+.column-image {
+  width: 20%;
+}
+.column-image {
+	padding: 0 1em;
+}
+.skill-name{
+  font-size: 0.85rem;
+}
+.column{
+  width:80%
 }
 .skill-name {
   text-align: center;
@@ -161,4 +173,10 @@
       letter-spacing: 0;
     }
   }
+  .column-list {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
 }
