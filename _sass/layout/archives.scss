@@ -138,9 +138,20 @@
     margin-left: 7rem;
     font-size: 0.85rem;
     line-height: 1.2; /* 줄 간격을 1.2배로 설정 */
+  }
+} /* #archives */
+.column-list {
+	display: flex;
+	justify-content: space-between;
 }
 
-} /* #archives */
+.column {
+	padding: 0 0.5em;
+}
+.skill-name {
+  text-align: center;
+}
+
 
 @media all and (max-width: 576px) {
   #archives {

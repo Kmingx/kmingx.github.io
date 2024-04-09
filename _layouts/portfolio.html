@@ -6,7 +6,7 @@ layout: page
 {% assign df_strftime_m = site.data.locales[lang].df.archives.strftime | default: '/ %m' %}
 {% assign df_dayjs_m = site.data.locales[lang].df.archives.dayjs | default: '/ MM' %}
 
-
+<!--project summary block -->
 <article class="px-1">
   {% if page.layout == 'page' or page.collection == 'tabs' %}
     {% assign tab_key = page.title | downcase %}
@@ -18,6 +18,7 @@ layout: page
     {{ content }}
   {% endif %}
   
+  <!--project summary block --> 
   <div id="archives" class="pl-xl-3">
     {% for post in site.posts %}
       {% if post.categories contains 'Project' %} <!-- 필터링 -->
@@ -54,6 +55,39 @@ layout: page
         {% if forloop.last %}</ul>{% endif %}
       {% endif %}
     {% endfor %}
+
+  <!--skill block -->  
   </div>
+  <h2 class="block-color-blue_background">👨‍💻
+    <strong>SKILLS 내용 수정 중 ...</strong>
+  </h2>
+  <hr/>
+  <div class="column-list">
+    <div style="width:10%" class="column">
+      <figure class="image">
+          <img src="/assets/img/icon/notion-logo-no-background.png" />
+      </figure>
+      <p class="skill-name"><strong>Notion</strong></p>
+    </div>
+    <div style="width:40%" class="column">
+      <p class="">
+        산출물 및 프젝트 자료 관리<br>
+        회의록 관리, 업무 자료을 유연하게 관리하고 공유합니다. 
+      </p>
+    </div>
+    <div style="width:10%" class="column">
+      <figure class="image">
+        <img src="/assets/img/icon/jira.png" />
+      </figure>
+      <p class="skill-name"><strong>Jira</strong></p>
+    </div>
+    <div style="width:40%" class="column">
+      <p class="">
+        애자일 방식의 개발 경험<br>
+        애자일보드 관리 및 Task 작성하고 업무를 진행합니다.
+      </p>
+    </div>
+  </div>
+  
 </article>
 
