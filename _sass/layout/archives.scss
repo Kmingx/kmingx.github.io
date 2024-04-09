@@ -54,10 +54,6 @@
       z-index: 1;
     }
   }
-#archives .year[data-year="2021"]::after {
-    left: 5px !important;
-  }
-  
   ul {
     li {
       font-size: 1.1rem;
@@ -138,6 +134,8 @@
     margin-left: 7rem;
     font-size: 0.85rem;
     line-height: 1.2; /* 줄 간격을 1.2배로 설정 */
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 } /* #archives */
 .column-list {
@@ -167,16 +165,80 @@
 
 @media all and (max-width: 576px) {
   #archives {
-    margin-top: -1rem;
-
+    .summary {
+      margin-left: 5rem;
+      font-size: 0.85rem;
+      line-height: 1.2; /* 줄 간격을 1.2배로 설정 */
+    }
+    letter-spacing: 0.03rem;
     ul {
-      letter-spacing: 0;
+      li {
+        font-size: 0.9rem; 
+        height: 50px;
+      &::before {
+        height: 72px;
+        left: 60px;
+        bottom: 16px;
+        }
+      }
+    }
+  
+    .year{
+      height: 3.0rem;
+      font-size: 1.0rem;
+      left: 2px;
+      &:first-child::before {
+        height: 38px;
+        top: 10px;
+        left: 62px;
+      }
+      &::before {
+        height: 63px;
+        left: 62px;
+        bottom: 16px;
+      }
+    }
+    .date {
+      white-space: nowrap;
+      display: inline-block;
+      position: relative;
+      right: 0.5rem;
+  
+      &.month {
+        width: 1.0rem;
+        text-align: center;
+      }
+  
+      &.day {
+        font-size: 70%;
+      }
+    }
+    a {
+      margin-left: 1.5rem;
+      &::before {
+        // width: 8px;
+        // height: 8px;
+        float: left;
+        top: 1.35rem;
+        left: 54px;
+      }
     }
   }
+
   .column-list {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
   }
+  // .skill-name{
+  //   display: none;
+  // }
+  .column-image {
+    width: 30%;
+  }
+  .column{
+    width:80%
+  }
+  
 
 }
