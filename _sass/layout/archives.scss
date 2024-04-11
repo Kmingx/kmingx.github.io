@@ -144,6 +144,7 @@
 }
 .skillbox {
 	display: flex;
+  width: 50%;
 
 }
 .column-image {
@@ -153,14 +154,13 @@
 	padding: 0 1em;
 }
 .skill-name{
-  font-size: 0.85rem;
+  text-align: center;
+  font-size: 0.8rem;
 }
 .column{
   width:80%
 }
-.skill-name {
-  text-align: center;
-}
+
 
 
 @media all and (max-width: 576px) {
@@ -233,12 +233,15 @@
   // .skill-name{
   //   display: none;
   // }
-  .column-image {
-    width: 30%;
-  }
+  // .column-image {
+  //   width: 30%;
+  // }
   .column{
     width:80%
   }
+  .skillbox {
+    width: 100%;
   
+  }
 
 }
