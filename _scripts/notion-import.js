@@ -98,7 +98,6 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
     let fm;
   if (cats.length > 0 && cats[0] === "Project") {
     //subtitle
-    let subtitle = id;
     let ptsubtitleitle = r.properties?.["서브타이틀"]?.["rich_text"];
     if (ptsubtitleitle?.length > 0) {
       ptsubtitleitle = ptsubtitleitle[0]?.["plain_text"];
