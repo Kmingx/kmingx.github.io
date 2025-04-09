@@ -46,7 +46,7 @@ jobs:
 
       # 4. Node 패키지 설치 및 빌드
       - name: Install Node dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build JavaScript and CSS
         run: npm run build
