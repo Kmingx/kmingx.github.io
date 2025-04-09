@@ -1,0 +1,45 @@
+/* sidebar */
+
+$sidebar-width: 260px !default; /* the basic width */
+$sidebar-width-large: 300px !default; /* screen width: >= 1650px */
+$sb-btn-gap: 0.8rem !default;
+$sb-btn-gap-lg: 1rem !default;
+
+/* other framework sizes */
+
+$topbar-height: 3rem !default;
+$search-max-width: 200px !default;
+$footer-height: 5rem !default;
+$footer-height-large: 6rem !default; /* screen width: < 850px */
+$main-content-max-width: 1250px !default;
+$radius-sm: 6px !default;
+$radius-lg: 10px !default;
+$back2top-size: 2.75rem !default;
+
+/* syntax highlight */
+
+$code-font-size: 0.85rem !default;
+$code-header-height: 2.25rem !default;
+$code-dot-size: 0.75rem !default;
+$code-dot-gap: 0.5rem !default;
+$code-icon-width: 1.75rem !default;
+
+/* fonts */
+
+@font-face {
+  font-family: 'KCC-Hanbit';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/KCC-Hanbit.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'WAGURITTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+$font-family-base: 'KCC-Hanbit', 'Source Sans Pro', 'Microsoft Yahei',
+  sans-serif !default;
+$font-family-heading: 'KCC-Hanbit', 'Lato', 'Microsoft Yahei', sans-serif !default;

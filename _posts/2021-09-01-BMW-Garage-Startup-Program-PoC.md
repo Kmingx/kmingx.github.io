@@ -7,12 +7,13 @@ categories: [Project, ]
 subtitle: 고객상담 이력 대시보드 개발
 enddate : 2021-12-01
 comments: false
+pin: true
+math: true
+mermaid: true
+image:
+  path: assets/img/2021-09-01-BMW-Garage-Startup-Program-PoC.md/0.png
+  alt: 
 ---
-## 대시보드 시연
-
-
-![0](/assets/img/2021-09-01-BMW-Garage-Startup-Program-PoC.md/0.png)
-
 
 ## 프로젝트 개요
 
