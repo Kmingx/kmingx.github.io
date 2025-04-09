@@ -1,4 +1,5 @@
 name: "Build and Deploy"
+
 on:
   push:
     branches:
@@ -9,7 +10,6 @@ on:
       - README.md
       - LICENSE
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -17,7 +17,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
@@ -27,35 +26,52 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. 소스코드 체크아웃
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: true
-          # If using the 'assets' git submodule from Chirpy Starter, uncomment above
-          # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
 
+      # 2. GitHub Pages 설정
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
 
+      # 3. Node.js 설치 (JS/CSS 빌드용)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      # 4. Node 패키지 설치 및 빌드
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build JavaScript and CSS
+        run: npm run build
+
+      # 5. Ruby + Jekyll 환경 세팅
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
           bundler-cache: true
 
-      - name: Build site
+      # 6. Jekyll 빌드
+      - name: Build Jekyll site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
 
-      - name: Test site
+      # 7. 빌드된 사이트 검증 (옵션)
+      - name: Test site with htmlproofer
         run: |
           bundle exec htmlproofer _site \
-            \-\-disable-external=true \
-            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+            --disable-external=true \
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 
+      # 8. 정적 파일 업로드
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
