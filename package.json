@@ -24,9 +24,10 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.4",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
-    "@notionhq/client": "^2.2.4"
+    "notion-to-md": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
