@@ -38,7 +38,7 @@ jobs:
       - name: Commit Imported Markdown
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "[배포] Notion에서 마크다운 추가"
+          commit_message: chore(deploy): "Notion에서 마크다운 추가"
           branch: main
           commit_user_name: notion-bot 🤖
           commit_user_email: actions@github.com
