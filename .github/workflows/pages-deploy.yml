@@ -64,7 +64,7 @@ jobs:
         env:
           JEKYLL_ENV: "production"
 
-      # 7. 빌드된 사이트 검증 (옵션 비디오파일 한글폴더명은 제외외)
+      # 7. 빌드된 사이트 검증 (옵션 비디오파일 한글폴더명은 제외)
       - name: Test site with htmlproofer
         run: |
           bundle exec htmlproofer _site \
