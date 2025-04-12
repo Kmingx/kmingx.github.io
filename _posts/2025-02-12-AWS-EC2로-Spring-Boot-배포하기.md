@@ -160,7 +160,8 @@ mysql_secure_installation
 - 루트 비밀번호 설정
 - 익명 사용자 제거
 - 원격 접속 허용(필요 시)
-
+	{% raw %}
+	```markdown
 	mysql -u root -p
 	CREATE DATABASE your_db;
 	CREATE USER 'your_user'@'%' IDENTIFIED BY 'your_password';
@@ -172,6 +173,8 @@ mysql_secure_installation
 	sudo 권한없이 mysql 접속 안하면 스프링부트에서 디비안붙음
 	ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '새로운비밀번호';
 	FLUSH PRIVILEGES;
+	```
+	{% endraw %}
 
 	- mysql -u -root -p   : Mysql 접속 안되면 sudo 권한으로 해볼것
 	- 프로젝트 DB 생성
@@ -215,27 +218,26 @@ mysql_secure_installation
 		![15](/assets/img/2025-02-12-AWS-EC2로-Spring-Boot-배포하기.md/15.png)
 
 
-		### 에러 ) 접속 에러 나는 경우 user 접속 권한 변경
+### 에러 ) 접속 에러 나는 경우 user 접속 권한 변경
+
+**현재 인증 플러그인 확인**
 
 
-		**현재 인증 플러그인 확인**
-
-
-		{% raw %}
+{% raw %}
 ```sql
-		SELECT user, host, plugin FROM mysql.user WHERE user = 'your_user
-		```
+SELECT user, host, plugin FROM mysql.user WHERE user = 'your_user
+```
 {% endraw %}
 
 		- 만약 `plugin`이 `caching_sha2_password`라면, 이를 변경해야 할 수 있습니다.
 		- **비밀번호 인증 방식을 변경**
 
-		{% raw %}
+{% raw %}
 ```sql
-		ALTER USER 'your_user'@'%' IDENTIFIED WITH mysql_native_password BY 'your_password';
-		FLUSH PRIVILEGES;
-		
-		```
+ALTER USER 'your_user'@'%' IDENTIFIED WITH mysql_native_password BY 'your_password';
+FLUSH PRIVILEGES;
+
+```
 {% endraw %}
 
 
