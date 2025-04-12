@@ -215,28 +215,27 @@ mysql_secure_installation
 		![15](/assets/img/2025-02-12-AWS-EC2로-Spring-Boot-배포하기.md/15.png)
 
 
-		### 접속 에러 나는 경우 user 접속 권한 변경
+		### 에러 ) 접속 에러 나는 경우 user 접속 권한 변경
 
 
 		**현재 인증 플러그인 확인**
 
 
-			{% raw %}
+		{% raw %}
 ```sql
-			
-			SELECT user, host, plugin FROM mysql.user WHERE user = 'your_user
-			```
+		SELECT user, host, plugin FROM mysql.user WHERE user = 'your_user
+		```
 {% endraw %}
 
-			- 만약 `plugin`이 `caching_sha2_password`라면, 이를 변경해야 할 수 있습니다.
+		- 만약 `plugin`이 `caching_sha2_password`라면, 이를 변경해야 할 수 있습니다.
 		- **비밀번호 인증 방식을 변경**
 
-			{% raw %}
+		{% raw %}
 ```sql
-			ALTER USER 'your_user'@'%' IDENTIFIED WITH mysql_native_password BY 'your_password';
-			FLUSH PRIVILEGES;
-			
-			```
+		ALTER USER 'your_user'@'%' IDENTIFIED WITH mysql_native_password BY 'your_password';
+		FLUSH PRIVILEGES;
+		
+		```
 {% endraw %}
 
 
@@ -249,10 +248,14 @@ mysql_secure_installation
 ### 3-6 Spring Boot 빌드
 
 
+{% raw %}
+```markdown
 chmod +x gradlew         # clone 받은 폴더에서 빌드 권한 부여
 ./gradlew build          # 빌드 실행
 
 sudo apt install redis-server #redis설치
+```
+{% endraw %}
 
 
 ![17](/assets/img/2025-02-12-AWS-EC2로-Spring-Boot-배포하기.md/17.png)
@@ -261,7 +264,11 @@ sudo apt install redis-server #redis설치
 ### 3-7 nginx 설치 및 설정 
 
 
+{% raw %}
+```markdown
 sudo apt install nginx -y    # Ubuntu
+```
+{% endraw %}
 
 
 ![18](/assets/img/2025-02-12-AWS-EC2로-Spring-Boot-배포하기.md/18.png)
@@ -269,6 +276,9 @@ sudo apt install nginx -y    # Ubuntu
 
 sudo vi /etc/nginx/nginx.conf
 
+
+{% raw %}
+```markdown
 hhtp 블록에 아래 내용 추가
 server {
         listen 80;
@@ -281,12 +291,12 @@ server {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
       }
- 
- 
+```
+{% endraw %}
+
+
 sudo nginx -t  # 설정 점검
 sudo systemctl restart nginx  # nginx 재시작
-
-
 
 
 sudo /etc/nginx/sites-available/default
@@ -318,6 +328,8 @@ EC2 퍼블릭 IP DNS 설정에 추가
 ### 3-9 SSL 적용 (Let's Encrypt)
 
 
+{% raw %}
+```markdown
 sudo apt install certbot python3-certbot-nginx -y    # Ubuntu
 
 
@@ -326,6 +338,8 @@ sudo certbot --nginx -d your-domain.com
 
 echo "0 0 * * * root certbot renew --quiet" | sudo tee -a /etc/crontab
 
+```
+{% endraw %}
 
 - certbot install
 - 구매한 도메인 SSL 발급
@@ -334,6 +348,8 @@ echo "0 0 * * * root certbot renew --quiet" | sudo tee -a /etc/crontab
 ![22](/assets/img/2025-02-12-AWS-EC2로-Spring-Boot-배포하기.md/22.png)
 
 
+{% raw %}
+```markdown
 sudo vi /etc/nginx/nginx.conf
 
 hhtp 블록에 아래 내용 추가
@@ -348,7 +364,10 @@ server {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
       }
- 
+```
+{% endraw %}
+
+
  
 sudo nginx -t  # 설정 점검
 sudo systemctl restart nginx  # nginx 재시작
@@ -362,6 +381,8 @@ sudo vi /etc/systemd/system/springboot.service
 
 - 서비스 어플리케이션 파일 생성
 
+{% raw %}
+```markdown
 [Unit]
 Description=Spring Boot Application
 After=network.target
@@ -377,21 +398,23 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 
+```
+{% endraw %}
 
 
-# systemd 데몬 리로드 (새로운 서비스 인식)
+systemd 데몬 리로드 (새로운 서비스 인식)
 sudo systemctl daemon-reload
 
-# 서비스 시작
+서비스 시작
 sudo systemctl start tanomuzoko
 
-# 부팅 시 자동 실행 등록
+부팅 시 자동 실행 등록
 sudo systemctl enable tanomuzoko
 
-# 서비스 상태 확인
+서비스 상태 확인
 sudo systemctl status tanomuzoko
 
-# 실시간 서비스 로그 확인
+실시간 서비스 로그 확인
 sudo journalctl -u tanomuzoko -f
 
 
