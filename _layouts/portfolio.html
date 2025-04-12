@@ -43,7 +43,7 @@ layout: page
           <li>
             <div class = "summary">주제 : {{ post.subtitle }}</div>
             <div class = "summary">기간 : {{ post.date | date: '%Y-%m' }} ~ {{ post.enddate | date: '%Y-%m'}}</div>
-            <div class = "summary">기술스택 : 
+            <div class = "summary">사용 기술 : 
               {% for tag in post.tags %}
                 {{ tag }}
                 {% unless forloop.last %},{% endunless %}
@@ -61,125 +61,312 @@ layout: page
     <strong>SKILLS</strong>
   </h2>
   <hr/>
-  <div class="column-list">
-    <div class = "skillbox">
-      <div class="column-image">
-        <figure class="image">
-            <img src="/assets/img/icon/notion-logo-no-background.png" alt="Notion Logo" />
-        </figure>
-        <p class="skill-name"><strong>Notion</strong></p>
+  <!-- 프로그래밍 언어 -->
+  <section>
+    <h3 class="block-color-blue_background">🐍 프로그래밍 언어</h3>
+    <hr />
+    <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/python_logo.png" alt="python_logo" />
+          </figure>
+          <p class="skill-name"><strong>Python</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">데이터 처리와 웹 개발</p>
+          <p class="skill-content">Pandas를 이용한 데이터 수집 및 전처리<br>
+          Django 기반 백엔드 개발<br>
+          업무 자동화 스크립트 작성에 폭넓게 사용</p>
+        </div>
       </div>
-      <div class="column">
-        <p class="">
-          산출물 및 프젝트 자료 관리<br>
-          회의록 관리, 업무 자료을 유연하게 관리하고 공유합니다. 
-        </p>
-      </div>
-    </div>
-    <div class = "skillbox">
-      <div class="column-image">
-        <figure class="image">
-            <img src="/assets/img/icon/jira.png" alt="Jira Logo" />
-        </figure>
-        <p class="skill-name"><strong>Jira</strong></p>
-      </div>
-      <div class="column">
-        <p class="">
-          애자일 방식의 개발 경험<br>
-          애자일보드 관리 및 Task 작성하고 업무를 진행합니다. 
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="column-list">
-    <div class = "skillbox">
-      <div class="column-image">
-        <figure class="image">
-            <img src="/assets/img/icon/python_logo.png" alt="Python Logo" />
-        </figure>
-        <p class="skill-name"><strong>Python</strong></p>
-      </div>
-      <div class="column">
-        <p class="">
-          데이터 핸들링 웹 개발 경험<br>
-          데이터 수집, 적재 및 Pandas 기반에 데이터 핸들링이 가능합니다.  
-        </p>
-      </div>
-    </div>
-    <div class = "skillbox">
-      <div class="column-image">
-        <figure class="image">
-            <img src="/assets/img/icon/airflow_logo.png" alt="Airflow Logo" />
-        </figure>
-        <p class="skill-name"><strong>Airflow</strong></p>
-      </div>
-      <div class="column">
-        <p class="">
-          배치 스케줄링 설정 및 DAG 작성 경험<br>
-          서로 다른 서버에 원격으로 Airflow 배치 스케줄링 등록 및 DAG 작성 경험이 있습니다.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="column-list">
-    <div class = "skillbox">
-      <div class="column-image">
-        <figure class="image">
-            <img src="/assets/img/icon/django_logo.png" alt="Django Logo" />
-        </figure>
-        <p class="skill-name"><strong>Django</strong></p>
-      </div>
-      <div class="column">
-        <p class="">
-          Django 활용한 백엔드 개발 경험<br>
-          MTV 패턴기반에 ORM 활용하여 조회,생성, 수정 삭제 기능을 개발한 경험이 있습니다. 
-        </p>
-      </div>
-    </div>
-    <div class = "skillbox">
-      <div class="column-image">
-        <figure class="image">
-            <img src="/assets/img/icon/aws_logo.png" alt="AWS Logo" />
-        </figure>
-        <p class="skill-name"><strong>AWS</strong></p>
-      </div>
-      <div class="column">
-        <p class="">
-          AWS EC2 활용 경험<br>
-          Linux 환경 개발 및 서비스 구축 및 배포 경험, SSL 발급을 통해 Https 적용 경험이 있습니다.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="column-list">
-    <div class = "skillbox">
-      <div class="column-image">
-        <figure class="image">
-            <img src="/assets/img/icon/git_logo.png" alt="Git Logo" />
-        </figure>
-        <p class="skill-name"><strong>Git</strong></p>
-      </div>
-      <div class="column">
-        <p class="">
-          Github, Gitlab 협업기반 개발 경험<br>
-          Task 별 브랜치 생성 및 commit, push 경험이 있습니다 
-        </p>
-      </div>
-    </div>
-    <div class = "skillbox">
-      <div class="column-image">
-        <figure class="image">
-            <img src="/assets/img/icon/teradata_logo.png" alt="Teradata Logo" />
-        </figure>
-        <p class="skill-name"><strong>TeraDB</strong></p>
-      </div>
-      <div class="column">
-        <p class="">
-          TeraDB 데이터 핸들링 경험<br>
-          Teradata SQL 언어를 통해 테이블 생성,삭제 데이터 조회 등 활용 경험이 있습니다. 
-        </p>
-      </div>
-    </div>
-  </div>
-</article>
 
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/java_logo.png" alt="java_logo" />
+          </figure>
+          <p class="skill-name"><strong>JAVA</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">Spring 기반 백엔드 개발</p>
+          <p class="skill-content">RESTful API 백엔드 개발<br>
+          MVC 아키텍처 기반 API 설계 및 구현</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- 웹 개발 -->
+  <section>
+    <h3 class="block-color-blue_background">🌐 웹 개발</h3>
+    <hr />
+    <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/django_logo.png" alt="django_logo" />
+          </figure>
+          <p class="skill-name"><strong>Django</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">Python 기반 웹 프레임워크</p>
+          <p class="skill-content">템플릿을 이용한 프론트엔드 구성 가능<br>
+          관리자 페이지 및 REST API 구현</p>
+        </div>
+      </div>
+
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/Spring_logo.png" alt="Spring_logo" />
+          </figure>
+          <p class="skill-name"><strong>Spring<br>Boot</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">Java 기반 웹 애플리케이션 프레임워크</p>
+          <p class="skill-content">CRUD 및 JPA를 활용한 DB 연동<br>
+          ChatGPT API를 이용한 추천 시스템 개발</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/html_logo.png" alt="html_logo" />
+          </figure>
+          <p class="skill-name"><strong>HTML</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">웹 페이지의 구조를 설계</p>
+          <p class="skill-content"> 포트폴리오/게시판/상세 페이지 HTML 설계<br>
+            실사용 기반의 웹 템플릿 제작 경험</p>
+        </div>
+      </div>
+
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/css_logo.png" alt="css_logo" />
+          </figure>
+          <p class="skill-name"><strong>CSS</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">웹 디자인 및 사용자 경험 개선</p>
+          <p class="skill-content">Flex/Grid 기반 레이아웃 구성<br>
+          UI 개선 중심의 스타일링 작업</p>
+        </div>
+      </div>
+    </div>
+
+        <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/js_logo.png" alt="js_logo" />
+          </figure>
+          <p class="skill-name"><strong>Java<br>Script</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">동적인 웹 페이지 구성</p>
+          <p class="skill-content"> 이벤트 기반 UI 처리<br>
+          jQuery, Ajax로 비동기 데이터 통신<br>
+          DOM 조작 및 사용자 입력 처리</p>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- DB -->
+  <section>
+    <h3 class="block-color-blue_background">🫙 데이터 베이스</h3>
+    <hr />
+    <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/Mysql_logo.png" alt="Mysql_logo" />
+          </figure>
+          <p class="skill-name"><strong>Mysql</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">관계형 데이터베이스 관리 및 데이터 처리</p>
+          <p class="skill-content">업무용 데이터 저장 및 테이블 설계 경험<br>
+          Spring JPA를 통해 데이터 CRUD 처리<br>
+        다양한 쿼리를 통한 데이터 조회/필터링 수행</p>
+        </div>
+      </div>
+
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/oralce_logo.png" alt="Jira Logo" />
+          </figure>
+          <p class="skill-name"><strong>Oracle</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">실무 프로젝트에서의 안정적인 DB 운용</p>
+          <p class="skill-content">대용량 데이터를 다루는 업무에서 활용<br>
+          SQL 기반 데이터 가공<br>
+          외부 연동 시스템과의 데이터 흐름 파악 및 설계<br></p>
+        </div>
+      </div>
+    </div>
+
+        <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/teradata_logo.png" alt="teradata_logo" />
+          </figure>
+          <p class="skill-name"><strong>TeraDB</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">데이터 분석을 위한 DW 구축</p>
+          <p class="skill-content">파이썬 기반 자동화 스크립트 구축<br>
+          외부 연동 시스템과의 데이터 흐름 파악 및 설계</p>
+        </div>
+      </div>
+
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/postgre_logo.png" alt="postgre_logo" />
+          </figure>
+          <p class="skill-name"><strong>Postgre</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">Django 데이터 처리</p>
+          <p class="skill-content">PostgreSQL 연동 및 운영<br>
+          Django ORM을 활용한 데이터 CRUD 처리<br>
+          다양한 쿼리를 통한 데이터 조회/필터링 수행</p>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 인프라 & 배포 -->
+  <section>
+    <h3 class="block-color-blue_background">☁️ 인프라 & 배포</h3>
+    <hr />
+    <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/aws_logo.png" alt="aws_logo" />
+          </figure>
+          <p class="skill-name"><strong>AWS</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">클라우드 기반 서버 운영 및 배포</p>
+          <p class="skill-content">EC2 인스턴스를 활용한 Linux 환경 구성<br>
+          Nginx 설정 및 SSL 인증서 적용<br>
+          Spring Boot, Django 등 웹 서버 직접 배포</p>
+        </div>
+      </div>
+
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/liunx_logo.png" alt="liunx_logo" />
+          </figure>
+          <p class="skill-name"><strong>Liunx</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">서버 환경 구축</p>
+          <p class="skill-content">Ubuntu 기반 서버 환경 직접 구성<br>
+          Nginx 설정, 방화벽 관리(UFW)<br>
+          시스템 서비스 관리 및 로그 모니터링 수행<br></p>
+        </div>
+      </div>
+    </div>
+
+        <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/airflow_logo.png" alt="airflow_logo" />
+          </figure>
+          <p class="skill-name"><strong>Airflow</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">데이터 파이프라인 자동화 및 스케줄링링</p>
+          <p class="skill-content">Python 기반 DAG 작성 및 처리 자동화<br>
+          다양한 태스크 구성 및 워크플로우 설계</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    <!--  협업/프로젝트 관리	 -->
+  <section>
+    <h3 class="block-color-blue_background">🤝 협업/프로젝트 관리</h3>
+    <hr />
+    <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/notion-logo-no-background.png" alt="notion-logo" />
+          </figure>
+          <p class="skill-name"><strong>Notion</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">프로젝트 협업과 산출물 정리</p>
+          <p class="skill-content">프로젝트 회의록, 일정, 기술 문서 관리<br>
+          업무별 페이지를 구성해 팀원과 협업</p>
+        </div>
+      </div>
+
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/jira.png" alt="jira" />
+          </figure>
+          <p class="skill-name"><strong>Jira</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">애자일 개발 및 태스크 관리</p>
+          <p class="skill-content">Sprint 기반 이슈 관리 및 일정 관리<br>
+          Task / Sub-task로 업무 분할, 우선순위 설정</p>
+        </div>
+      </div>
+    </div>
+
+        <div class="column-list">
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/git_logo.png" alt="git_logo" />
+          </figure>
+          <p class="skill-name"><strong>Git</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">협업 및 형상 관리</p>
+          <p class="skill-content">GitHub, GitLab 기반 프로젝트 진행<br>
+          PR, Merge Conflict 해결 경험<br>
+          약속된 커밋 메세지 사용</p>
+        </div>
+      </div>
+
+      <div class="skillbox">
+        <div class="column-image">
+          <figure class="image">
+            <img src="/assets/img/icon/GitHubActions_logo.png" alt="GitHubActions_logo" />
+          </figure>
+          <p class="skill-name"><strong>GitHub<br>actions</strong></p>
+        </div>
+        <div class="column">
+          <p class="skill-title">자동화된 배포 및 테스트 파이프라인 구성</p>
+          <p class="skill-content">Spring Boot 프로젝트의 CI/CD 자동화 구성<br>
+          테스트 → 빌드 → 배포 순의 파이프라인 설계 및 운영</p>
+        </div>
+      </div>
+    </div>
+  </section>

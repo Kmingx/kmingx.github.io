@@ -148,14 +148,24 @@
   width: 20%;
 }
 .column-image {
-  padding: 0 1em;
+  padding: 0 0.8em;
 }
 .skill-name {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 .column {
   width: 80%;
+}
+.skill-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+.skill-content {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding-right: 20px;
 }
 
 @media all and (max-width: 576px) {
