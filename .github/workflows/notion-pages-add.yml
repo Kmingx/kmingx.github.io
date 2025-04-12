@@ -40,10 +40,12 @@ jobs:
         with:
           commit_message: "chore(deploy): notion에서 마크다운 추가"
           branch: main
-          commit_user_name: notion-bot 🤖
+          # Git committer 이름
+          commit_user_name: importer-bot 🤖
+          # Git committer 이메일
           commit_user_email: actions@github.com
-          author_name: notion-bot 🤖
-          author_email: actions@github.com
+          # Git 작성자(Author) 설정 (한 줄로 committer+author 동시 설정)
+          commit_author: importer-bot 🤖 <actions@github.com>
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
